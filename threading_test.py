@@ -28,3 +28,34 @@ print("Number of active threads : ", threading.activeCount())
 
 #the number of active threads will be displayed while the thread 1 is asleep
 
+#we can have more than one thread and we can also synchrnoize multiple threads
+#that are accesing a global variable to print out a final value in the main thread
+
+# the thread.join() command tells python to wait till that thread is done before moving to the next line
+#make a global list
+ls = []
+def count_1(n):
+  for i in range(1, n+1):
+    ls.append(i)
+    time.sleep(0.5)
+
+def count_2(n):
+  for i in range(1, n+1):
+    ls.append(i**3)
+    time.sleep(0.5)
+
+x_t1 = threading.Thread(target=count_1, args=(5,)) #thread 1
+x_t1.start()
+
+y_t2 = threading.Thread(target=count_2, args=(5,)) #thread 2
+y_t2.start()
+
+print("Number of active threads : ", threading.activeCount()) 
+
+x_t1.join()
+y_t2.join()
+
+print(ls)
+
+
+
