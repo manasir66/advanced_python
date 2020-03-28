@@ -13,4 +13,10 @@ def class_generator(some_val):
     def get_val_from_class(self):
       return self.val
 
-  return Some_Class #Return the class created inside the function 
+  return Some_Class                    #Return the class created inside the function 
+
+
+cls = class_generator("Pass Some Val")
+object_of_cls = cls("Some name")
+
+print(object_of_cls.name)
