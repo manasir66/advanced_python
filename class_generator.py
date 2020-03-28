@@ -1,3 +1,5 @@
+import inspect   #can be used to inspect elements 
+
 #Testing generating classes using functions 
 
 def class_generator(some_val):
@@ -20,3 +22,4 @@ cls = class_generator("Pass Some Val")
 object_of_cls = cls("Some name")
 
 print(object_of_cls.name)
+print(id(class_generator))
